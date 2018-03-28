@@ -1,0 +1,10 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, "8.0"
+
+target 'FMDBHelper_Tests' do
+  pod "FMDB", "2.6.2"
+  pod "FMDBHelper", :path => "../"
+
+  pod "Kiwi", "2.4.0"
+end
