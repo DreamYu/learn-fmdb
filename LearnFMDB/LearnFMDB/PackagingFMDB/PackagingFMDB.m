@@ -31,6 +31,11 @@
     person.age = 26;
     person.height = 172.12;
     person.weight = 120.4555;
+    person.carArray = [@[@"AAA",
+                        @"BBB",
+                        @"CCC",
+                        @"DDD",
+                        ] mutableCopy];
     
     // 用来测试操作一组数据
     NSMutableArray *mArr = [NSMutableArray arrayWithCapacity:0];
@@ -185,6 +190,10 @@
         ////查找name=cleanmonkey的数据
         NSArray *personArr = [db jq_lookupTable:@"user" dicOrModel:[Person class] whereFormat:@"where name = 'cleanmonkey'"];
         NSLog(@"name=cleanmonkey:%@", personArr);
+        [personArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            Person *person = obj;
+            NSLog(@"person.carArray:%@", person.carArray);
+        }];
     }];
     
     // 把查询的结果存入字典示例
